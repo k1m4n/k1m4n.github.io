@@ -74,7 +74,7 @@
 	var popup = L.popup();
 
 	//(16) this variable is a GeoJSON file! But it's not yet added to the map. Can you figure out why, and fix it? And no, it's not the order of the coordinates!
-		var walker303 = {
+		var walker303 = L.geoJSON(walker303,{}).addTo(mymap); {
     "type": "Feature",
     "properties": {
         "name": "Love Library",
@@ -88,7 +88,7 @@
 };
 
 //(17) you can also comment out mapped items if you do not want them to draw. note that the var reference above is still present but below i have turned off a layer
- L.geoJSON(walker303,{}).addTo(mymap);
+ 
 
 //(18) Bonus action: think about how you would write some pop up text into your "pointofinterest" layer. Look at how it is done above. Read online help. Ask your neighbor. There are multiple approaches!
 
