@@ -42,7 +42,7 @@
 // (9) in this variable, you define the longitude, latitude, and zoom level of the user map when they load the page, then follow with the tile layer you want (here it is mapbox)
 	
 	
-	var mymap = L.map('mapid').setView([41.79116133977498, -87.59823778348704], 16);
+var mymap = L.map('mapid').setView([41.79116133977498, -87.59823778348704], 16);
 	L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
 	maxZoom: 16
@@ -51,14 +51,14 @@
 
 //(11) this is how you define individual features on the map - a marker, a cirlce, a polygon. You could also call up a variable and point it to a hosted GIS file to load it in.
 //(12) note that each popup has preloaded text here. You could also have a variable that points attributes in a dataset to populate a popup; we will do this in the future
-	L.marker([41.79073192190278, -87.60278425555747]).addTo(mymap)
-		.bindPopup("<b>Hello world!</b><br />I open automatically.").openPopup();
+	L.marker([41.79064396034654, -87.60287546039423]).addTo(mymap)
+		.bindPopup("<b>i am now on crerar</b><br />I open automatically.").openPopup();
 
-	L.circle([41.79210492530657, -87.60079389238955], 200, {
+	L.circle([41.79211295486799, -87.60042912043788], 200, {
 		color: 'green',
 		fillColor: '#f03',
 		fillOpacity: 0.5
-	}).addTo(mymap).bindPopup("this is also a library!");
+	}).addTo(mymap).bindPopup("this is also a library");
 	//(13)notice that, with leaflet, you can set the color of the outline by using major color names, as well as the fill color with hex codes
 
 
@@ -66,7 +66,7 @@
 		[41.79027895349174, -87.59867779654374],
 		[41.79150071588047, -87.59644738553216],
 		[41.79001876034581, -87.59778259756630],
-		[41.79001876034581, -87.59878259756630]
+		[41.79001876034581, -87.59862832865667]
 	]).addTo(mymap).bindPopup("I am a polygon.");
 	//(14)three nodes - the above code is drawing is a triangle... you can add more nodes to the polygon by separating each with a comma
 
@@ -74,7 +74,7 @@
 	var popup = L.popup();
 
 	//(16) this variable is a GeoJSON file! But it's not yet added to the map. Can you figure out why, and fix it? And no, it's not the order of the coordinates!
-		var walker303 =  {
+		var walker303 = {
     "type": "Feature",
     "properties": {
         "name": "Love Library",
@@ -83,12 +83,12 @@
     },
     "geometry": {
         "type": "Point",
-        "coordinates": [41.78913406251027, -87.59860344501453]
+        "coordinates": [-87.59862832865667, 41.78901869362468] 
     }
 };
 
 //(17) you can also comment out mapped items if you do not want them to draw. note that the var reference above is still present but below i have turned off a layer
- L.geoJSON(walker303,{}).addTo(mymap);
+L.geoJSON(walker303,{}).addTo(mymap);
 
 //(18) Bonus action: think about how you would write some pop up text into your "pointofinterest" layer. Look at how it is done above. Read online help. Ask your neighbor. There are multiple approaches!
 
