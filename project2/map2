@@ -23,6 +23,15 @@
                 zoom: 5
             });
 
+   var onEachFeature = function(feature, layer) {
+                if (feature.properties) {
+                    var prop = feature.properties;
+                    var popup = '<h3>'+prop['Location']+'</h3>'+'<b>Cases Day 1:</b> '+prop['1']+'<br><b>Cases Day 16:</b> '+prop['covid'];
+                    feature.layer = layer;
+                    layer.bindPopup(popup, {maxWidth: 150});
+                }
+            };
+
             var imagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
                 attribution:  'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
             });
@@ -31,15 +40,6 @@
                 attribution: 'Tiles &copy; Esri &mdash; Source: USGS, Esri, TANA, DeLorme, and NPS',
                 maxZoom: 13
             }).addTo(map);
-
-            var onEachFeature = function(feature, layer) {
-                if (feature.properties) {
-                    var prop = feature.properties;
-                    var popup = '<h3>'+prop['Location']+'</h3>'+'<b>Cases Day 1:</b> '+prop['1']+'<br><b>Cases Day 16:</b> '+prop['covid'];
-                    feature.layer = layer;
-                    layer.bindPopup(popup, {maxWidth: 150});
-                }
-            };
 
             function getColor(value) {
                 return value > 50000000 ? '#54278f':
