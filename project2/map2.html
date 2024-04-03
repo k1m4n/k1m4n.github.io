@@ -59,7 +59,7 @@
                 }; 
             }
 
-            var provinces = new L.geoJson(provinces, {style:style});
+            var provinces = new L.geoJson(provinces, {style:style}).addTo(map);
 
             var minValue = 100;
             var minRadius = 5;
