@@ -15,7 +15,7 @@
 </head>
 <body>
 	<div id="map"></div>
-	<script>var map = L.map('map', {attributionControl: false}).setView([41.791, -87.5949], 14);L.control.attribution({prefix: false}).addTo(map);var tilesource_layer = L.tileLayer('“https://k1m4n.github.io/project3/”{z}/{x}/{y}.png', {minZoom: 13, maxZoom: 15, tms: false, attribution: 'Created by QGIS'}).addTo(map); 
+	<script>var map = L.map('map', {attributionControl: false}).setView([41.791, -87.5949], 14);L.control.attribution({prefix: false}).addTo(map);var tilesource_layer = L.tileLayer('https://k1m4n.github.io/project3/”{z}/{x}/{y}.png', {minZoom: 13, maxZoom: 15, tms: false, attribution: 'Created by QGIS'}).addTo(map); 
 	var bus = new L.geoJson(bus).addTo(map);
 
 </script>
