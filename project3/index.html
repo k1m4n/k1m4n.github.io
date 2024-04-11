@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Assignment 3</title>
+        <title>Project 3</title>
 
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,12 +29,12 @@
             onEachFeature: onEachFeature,
             pointToLayer: function(feature, ll){
                 return L.circleMarker(ll, {
-                    color: '#000000',
+                    color: '#e34a33',
                     opacity: 1,
                     weight: 2,
-                    fillColor: '#772222',
+                    fillColor: '#c51b8a',
                     fillOpacity: 0.5,
-                    radius: 3
+                    radius: 2.5
                 });
             }
         }).addTo(map);
