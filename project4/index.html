@@ -59,14 +59,14 @@
                 url: "https://gisext.lincoln.ne.gov/arcgis/rest/services/Parks/Park_Boundaries/MapServer/0"
             });
 
-            var trails = new FeatureLayer ({
-                url: "https://gis.lincoln.ne.gov/public/rest/services/Planning/Trails/MapServer",
+            var wild = new FeatureLayer ({
+                url: "https://gis.lincoln.ne.gov/public/rest/services/Planning/Wild/MapServer/6",
                 renderer: {
                     type: "simple",
-                    legendOptions: {title: "Trails"},
+                    legendOptions: {title: "Invertebrate Study Areas"},
                     symbol: {
-                        type: "simple-line",
-                        color: "green"
+                        type: "simple-fill",
+                        color: "yellow"
                     }
                 }
             });
@@ -83,7 +83,7 @@
             });
 
             var map = new Map({
-                layers: [thebasemap, trails, geojsonLayer]
+                layers: [thebasemap, wild, geojsonLayer]
             });
 
             var view = new MapView({
@@ -101,8 +101,8 @@
                     layer: geojsonLayer,
                     title: "Assignment 4 Symbols"
                 },{
-                    layer: trails,
-                    title: "Trails"
+                    layer: wild,
+                    title: "Invertebrate Study Areas"
                 }]
             });
 
