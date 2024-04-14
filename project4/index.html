@@ -60,12 +60,12 @@
             });
 
             var wild = new FeatureLayer ({
-                url: "https://gis.lincoln.ne.gov/public/rest/services/Planning/Wild/MapServer/6",
+                url: "https://gis.lincoln.ne.gov/public/rest/services/Planning/Trails/MapServer/0",
                 renderer: {
                     type: "simple",
-                    legendOptions: {title: "Invertebrate Study Areas"},
+                    legendOptions: {title: "Biking Facilities"},
                     symbol: {
-                        type: "simple-fill",
+                        type: "simple-line",
                         color: "yellow"
                     }
                 }
@@ -102,7 +102,7 @@
                     title: "Assignment 4 Symbols"
                 },{
                     layer: wild,
-                    title: "Invertebrate Study Areas"
+                    title: "Biking Facilities"
                 }]
             });
 
