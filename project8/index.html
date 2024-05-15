@@ -36,7 +36,7 @@
             var onEachFeature = function(feature, layer) {
                 if (feature.properties) {
                     var prop = feature.properties;
-                    var popup = '<strong>Location: </strong>'+prop['name']+'<br>'+'<strong>Latitude: </strong>'+prop['latitutde'];
+                    var popup = '<strong>Location: </strong>'+prop['name']+'<br>'+'<strong>When: </strong>'+prop['time'];
                 feature.layer = layer;
                 layer.bindPopup(popup, {maxWidth: "600"});
                 }
