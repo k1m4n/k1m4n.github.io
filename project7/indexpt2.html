@@ -66,10 +66,13 @@
             function onLoadData(data) {
                 timeline = L.timeline(data, {
                     style: function (data) {
-                        return {
-                            stroke: false,
-                            color: getColorFor(data.properties.DIFF),
+                        return L.circleMarker(ll, {
+                            color: '#ffffff',
+                            opacity: 3,
+                            weight: 1,
+                            fillColor: getColorFor(data.properties.DIFF),
                             fillOpacity: 0.9,
+                            radius: calcRadius(data.properties.EV_EV)
                         };
                     },
                     waitToUpdateMap: true,
