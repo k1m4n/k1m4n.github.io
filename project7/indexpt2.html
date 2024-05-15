@@ -74,7 +74,7 @@
                     },
                     waitToUpdateMap: true,
                     onEachFeature: function (feature, layer) {
-                        layer.bindTooltip('<h3>'+ feature.properties.NAME + '</h3> <p>' + ' <br>Biden: <strong>' + feature.properties.DEM + '</strong> <br>Trump: <strong>' + feature.properties.REP + '</strong></p>');
+                        layer.bindTooltip('<h3>'+ feature.properties.NAME + '</h3> <p>' + 'Electoral Votes: <strong>' + feature.properties.EV_EV + '</strong> <br>Biden: <strong>' + feature.properties.DEM + '%</strong> <br>Trump: <strong>' + feature.properties.REP + '%</strong></p>');
                     },
                 });
             
