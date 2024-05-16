@@ -1,4 +1,4 @@
-1.
-2.
-3.
-4.
+1. The colors rely on the Diff field. I know because in the onLoadData function, our points are colored using "color: getColorFor(data.properties.DIFF),"
+2. After the positive 6 value I would write in “value >= 3 ? ‘light blue in hex code’:”
+3. I like the color scheme as it makes sense and works well for a general audience who understands red is rep and blue is dem. Perhaps just focusing on the US and cutting out canada/mexico could focus the map more, as well as bringing in AK/HI so we can see it. 
+4. It doesn't have be, but can be confusing if it is direct without a function to make the radius have a proper scale and avoid huge circles and invisible tiny dots when the difference is only 30ish votes for example. I also think with votes, circles might be confusing and more useful for covid data for example. 
