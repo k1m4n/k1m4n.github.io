@@ -53,7 +53,7 @@
 
                 const layer = new FeatureLayer({
                     url: "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Incident_Locations_Current/FeatureServer/0",
-                    outFields: ["IncidentSize"],
+                    outFields: ["POOCounty", "IncidentSize"],
                     popupTemplate: popupTemplate
                 });
                 const map = new Map({
