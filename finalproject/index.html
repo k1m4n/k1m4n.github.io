@@ -54,7 +54,7 @@
                 return 0.9 * Math.pow(val/minValue, 0.4) * minRadius;
             }
 
-            var covidData = new L.geoJson(wildfires, {
+            var wildfires = new L.geoJson(wildfires, {
                 onEachFeature: onEachFeature,
                 pointToLayer: function(FeatureCollection, ll){
                     return L.circleMarker(ll, {
