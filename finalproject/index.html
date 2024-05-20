@@ -74,7 +74,16 @@
                 });
                 view.ui.add(legend, "top-left");
             });
+            
+            var dipsites = {
+                "type": "Feature",
+                "properties": {
+                    "name": "Love Library",
+                    "amenity": "Library",
+                    "popupContent": "This is a library!"
 
+           L.geoJSON(dipsites,{}).addTo(mymap);
+            
         </script>
     </head>
     <body>
