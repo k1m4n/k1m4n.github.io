@@ -8,7 +8,6 @@
         <title>wildfires</title>
         <link rel="stylesheet"href="https://js.arcgis.com/4.18/esri/themes/light/main.css" />
         <script src="https://js.arcgis.com/4.18/"></script>
-        
 
         <style>
             html,
@@ -34,7 +33,7 @@
                 "esri/layers/FeatureLayer",
     
                 "esri/widgets/Legend"
-            ], function (Map, MapView, FeatureLayer, Legend, WebTileLayer) {
+            ], function (Map, MapView, FeatureLayer, Legend) {
                 const popupTemplate = {
                     title: "Wildfire at {POOCounty} County",
                     content: [{
@@ -58,11 +57,15 @@
                     popupTemplate: popupTemplate
                 });
                 
+                const layer = new FeatureLayer({
+                    url: "https://apps.fs.usda.gov/fsgisx01/rest/services/RDW_LandscapeAndWildlife/NLCD_2016_TreeCanopyCover_CONUS/ImageServer",
+                    
+                });
+                
                 const map = new Map({
                     basemap: "satellite",
                     layers: [layer]
                 });
-                        
                 const view = new MapView({
                     map: map,
                     container: "viewDiv",
@@ -76,7 +79,7 @@
                 });
                 view.ui.add(legend, "top-left");
             });
-            
+
         </script>
     </head>
     <body>
