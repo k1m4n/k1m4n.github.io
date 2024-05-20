@@ -52,35 +52,12 @@
                         ]
                 }]};
                 
-                {
-                    title: "Polutant Monitor at {Local_Site_Name}",
-                    content: [{
-                        type: "fields",
-                        fieldInfos: [
-                            {
-                                fieldName: "Address",
-                                label: "Address",
-                                format: {
-                                    places: 0,
-                                    digitSeparator: true
-                                }
-                            },
-                        
-                        ]
-                }]};
-
+        
                 const layer = new FeatureLayer({
                     url: "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Incident_Locations_Current/FeatureServer/0",
                     outFields: ["POOCounty", "IncidentSize"],
                     popupTemplate: popupTemplate
                 });
-
-                const monitor = new FeatureLayer({
-                    url: "https://gispub.epa.gov/arcgis/rest/services/OAR_OAQPS/AQSmonitor_sites/MapServer/26",
-                    outFields: [],
-                    popupTemplate: popupTemplate
-                });
-
 
         
                 const map = new Map({
