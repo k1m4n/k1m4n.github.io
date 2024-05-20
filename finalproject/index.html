@@ -8,6 +8,7 @@
         <title>wildfires</title>
         <link rel="stylesheet"href="https://js.arcgis.com/4.18/esri/themes/light/main.css" />
         <script src="https://js.arcgis.com/4.18/"></script>
+        <script src="dipsite.js"></script>
 
         <style>
             html,
@@ -56,19 +57,17 @@
                     outFields: ["POOCounty", "IncidentSize"],
                     popupTemplate: popupTemplate
                 });
-
-
-                const basemap = new Basemap({
-                    baseLayers: [
-                        new WebTileLayer(urltemplate: "https://arcg.is/0vyGbC0")
-                    ],
-                    referenceLayers: [
-                        new WebTileLayer(...)
-                    ]
+                
+                const layer = new FeatureLayer({
+                    url: "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Incident_Locations_Current/FeatureServer/0",
+                    outFields: ["POOCounty", "IncidentSize"],
+                    popupTemplate: popupTemplate
                 });
                 
-                map.add(basemap);
-
+                const map = new Map({
+                    basemap: "satellite",
+                    layers: [layer]
+                        
                 const view = new MapView({
                     map: map,
                     container: "viewDiv",
@@ -82,7 +81,23 @@
                 });
                 view.ui.add(legend, "top-left");
             });
-
+            
+            
+            var dipsite = new L.geoJson(dipsite, {
+                onEachFeature: onEachFeature,
+                pointToLayer: function(feature, ll){
+                    return L.circleMarker(ll, {
+                        color: '#e34a33',
+                        opacity: 1,
+                        weight: 2,
+                        fillColor: '#c51b8a',
+                        fillOpacity: 0.5,
+                        radius: 2.5
+                    });
+                }
+            }).addTo(map);
+            
+            var tilesource_layer = L.tileLayer('https://k1m4n.github.io/finalproject/{z}/{x}/{y}.png', {minZoom: 13, maxZoom: 17, tms: false, attribution: 'Created by karina'}).addTo(map);
         </script>
     </head>
     <body>
