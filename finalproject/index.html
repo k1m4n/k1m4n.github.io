@@ -51,6 +51,23 @@
                         
                         ]
                 }]};
+                
+                {
+                    title: "Polutant Monitor at {Local_Site_Name}",
+                    content: [{
+                        type: "fields",
+                        fieldInfos: [
+                            {
+                                fieldName: "Address",
+                                label: "Address",
+                                format: {
+                                    places: 0,
+                                    digitSeparator: true
+                                }
+                            },
+                        
+                        ]
+                }]};
 
                 const layer = new FeatureLayer({
                     url: "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Incident_Locations_Current/FeatureServer/0",
@@ -58,17 +75,14 @@
                     popupTemplate: popupTemplate
                 });
 
-                  var dipsite = new FeatureLayer ({
-                url: "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/Operational_Data_Archive_2022/FeatureServer/3",
-                renderer: {
-                    type: "simple",
-                    legendOptions: {title: "Dip Sites"},
-                    symbol: {
-                        type: "simple-marker",
-                        color: "yellow"
-                    }
-                }
-            });
+                const monitor = new FeatureLayer({
+                    url: "https://gispub.epa.gov/arcgis/rest/services/OAR_OAQPS/AQSmonitor_sites/MapServer/26",
+                    outFields: [],
+                    popupTemplate: popupTemplate
+                });
+
+
+        
                 const map = new Map({
                     basemap: "oceans",
                     layers: [layer]
