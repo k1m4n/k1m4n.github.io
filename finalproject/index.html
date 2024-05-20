@@ -57,11 +57,6 @@
                     popupTemplate: popupTemplate
                 });
                 
-                const layer = new FeatureLayer({
-                    url: "https://apps.fs.usda.gov/fsgisx01/rest/services/RDW_LandscapeAndWildlife/NLCD_2016_TreeCanopyCover_CONUS/ImageServer",
-                    
-                });
-                
                 const map = new Map({
                     basemap: "satellite",
                     layers: [layer]
