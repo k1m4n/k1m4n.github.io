@@ -8,7 +8,7 @@
         <title>Wildfires and Operations</title>
         <link rel="stylesheet"href="https://js.arcgis.com/4.18/esri/themes/light/main.css" />
         <script src="https://js.arcgis.com/4.18/"></script>
-        <script src = "https://k1m4n.github.io/finalproject/dipsite.js"></script>
+    
 
         <style>
             html,
@@ -57,6 +57,18 @@
                     outFields: ["POOCounty", "IncidentSize"],
                     popupTemplate: popupTemplate
                 });
+
+                  var dipsite = new FeatureLayer ({
+                url: "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/Operational_Data_Archive_2022/FeatureServer/3",
+                renderer: {
+                    type: "simple",
+                    legendOptions: {title: "Dip Sites"},
+                    symbol: {
+                        type: "simple-marker",
+                        color: "yellow"
+                    }
+                }
+            });
                 const map = new Map({
                     basemap: "oceans",
                     layers: [layer]
@@ -80,27 +92,6 @@
     <body>
         <div id="viewDiv"></div>
         <div id="timeSlider"></div>
-<script type="text/javascript">
- var minValue = 100;
-            var minRadius = 5;
 
-            function calcRadius(val) {
-                return 0.9 * Math.pow(val/minValue, 0.4) * minRadius;
-            }
-
-            var dipsite = new L.geoJson(dipsite, {
-                onEachFeature: onEachFeature,
-                pointToLayer: function(feature, ll){
-                    return L.circleMarker(ll, {
-                        color: '#000000',
-                        opacity: 1,
-                        weight: 2,
-                        fillColor: '#772222',
-                        fillOpacity: 0.5,
-                        
-                    });
-                }
-            }).addTo(map);
-          </script>
     </body>
 </html>
