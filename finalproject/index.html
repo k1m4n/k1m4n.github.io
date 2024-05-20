@@ -5,10 +5,9 @@
         <meta name="viewport"
             content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 
-        <title>Wildfires and Operations</title>
+        <title>Wildlife Cameras and Effects</title>
         <link rel="stylesheet"href="https://js.arcgis.com/4.18/esri/themes/light/main.css" />
         <script src="https://js.arcgis.com/4.18/"></script>
-    
 
         <style>
             html,
@@ -32,36 +31,36 @@
                 "esri/Map",
                 "esri/views/MapView",
                 "esri/layers/FeatureLayer",
-    
+                "esri/widgets/TimeSlider",
                 "esri/widgets/Legend"
-            ], function (Map, MapView, FeatureLayer, Legend) {
+            ], function (Map, MapView, FeatureLayer, TimeSlider, Legend) {
                 const popupTemplate = {
-                    title: "Wildfire at {POOCounty} County",
+                    title: "Cameras Placed at {SITE_ID}",
                     content: [{
                         type: "fields",
                         fieldInfos: [
                             {
-                                fieldName: "IncidentSize",
-                                label: "Size",
+                                fieldName: "OBJECTID",
+                                label: "Camera Type",
                                 format: {
                                     places: 0,
                                     digitSeparator: true
                                 }
                             },
-                        
+                            {
+                                fieldName: "OWNERSHIP",
+                                label: "Owner"
+                            },
                         ]
                 }]};
-                
-        
+
                 const layer = new FeatureLayer({
-                    url: "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Incident_Locations_Current/FeatureServer/0",
-                    outFields: ["POOCounty", "IncidentSize"],
+                    url: "https://services3.arcgis.com/T4QMspbfLg3qTGWY/ArcGIS/rest/services/Existing_Wildfire_Detection_Cameras/FeatureServer/0",
+                    outFields: ["SITE_ID", "OWNERSHIP"],
                     popupTemplate: popupTemplate
                 });
-
-        
                 const map = new Map({
-                    basemap: "oceans",
+                    basemap: "satellite",
                     layers: [layer]
                 });
                 const view = new MapView({
@@ -70,22 +69,25 @@
                     zoom: 2,
                     center: [-150, 0]
                 });
-              
-
+                const timeSlider = new TimeSlider({
+                    container: "timeSlider",
+                    view: view,
+                    timeVisible: true,
+                    loop: true
+                });
+                view.whenLayerView(layer).then(function (lv) {
+                    timeSlider.fullTimeExtent = layer.timeInfo.fullTimeExtent.expandTo("hours");
+                });
                 const legend = new Legend({
                     view: view
                 });
                 view.ui.add(legend, "top-left");
             });
-L.control.layers(basemaps, overlaymaps, {collapsed:false}).addTo(map);
+
         </script>
     </head>
     <body>
         <div id="viewDiv"></div>
         <div id="timeSlider"></div>
-
-        
-        
-
     </body>
 </html>
