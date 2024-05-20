@@ -125,11 +125,11 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">IncidentSi</th>\
-                        <td class="visible-with-data" id="IncidentSi">' + (feature.properties['Size of Fire'] !== null ? autolinker.link(feature.properties['IncidentSi'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Size of Fire</th>\
+                        <td class="visible-with-data" id="IncidentSi">' + (feature.properties['IncidentSi'] !== null ? autolinker.link(feature.properties['IncidentSi'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">POOCounty</th>\
+                        <th scope="row">County</th>\
                         <td class="visible-with-data" id="POOCounty">' + (feature.properties['POOCounty'] !== null ? autolinker.link(feature.properties['POOCounty'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
