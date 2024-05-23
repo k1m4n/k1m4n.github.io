@@ -78,9 +78,9 @@
         document.querySelector(".leaflet-popup-pane").addEventListener("load", function(event) {
           var tagName = event.target.tagName,
             popup = map._popup;
-          // Also check if flag is already set.
+        
           if (tagName === "IMG" && popup && !popup._updated) {
-            popup._updated = true; // Set flag to prevent looping.
+            popup._updated = true; 
             popup.update();
           }
         }, true);
@@ -260,12 +260,7 @@
             {label: '<img src="legend/Incidents_1.png" /> Fires', layer: layer_Incidents_1},
             {label: "BaseMap", layer: layer_OSMStandard_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
-            //namedToggle: true,
-            //selectorBack: false,
-            //closedSymbol: '&#8862; &#x1f5c0;',
-            //openedSymbol: '&#8863; &#x1f5c1;',
-            //collapseAll: 'Collapse all',
-            //expandAll: 'Expand all',
+         
             collapsed: true,
         });
         lay.addTo(map);
